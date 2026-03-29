@@ -30,11 +30,11 @@ import org.springframework.web.bind.annotation.RestController;
       "SqlStringInjectionHint.10.5",
       "SqlStringInjectionHint.10.6"
     })
-public class SqlInjectionLesson10 implements AssignmentEndpoint {
+public class SqlInjectionLesson3 implements AssignmentEndpoint {
 
   private final LessonDataSource dataSource;
 
-  public SqlInjectionLesson10(LessonDataSource dataSource) {
+  public SqlInjectionLesson3(LessonDataSource dataSource) {
     this.dataSource = dataSource;
   }
 
@@ -46,7 +46,7 @@ public class SqlInjectionLesson10 implements AssignmentEndpoint {
 
   protected AttackResult injectableQueryAvailability(String action) {
     StringBuilder output = new StringBuilder();
-    String query = "SELECT * FROM access_log WHERE action LIKE '%" + action + "%'"; //Comment2
+    String query = "SELECT * FROM access_log WHERE action LIKE '%" + action + "%'"; //Comment1
 
     try (Connection connection = dataSource.getConnection()) {
       try {
